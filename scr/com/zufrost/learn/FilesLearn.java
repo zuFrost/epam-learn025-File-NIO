@@ -72,17 +72,34 @@ public class FilesLearn {
                         scan(filesArray[i].getPath());
                     }
                 }
-             return count;
+                return count;
             }
         }
 
-        FileScan fileScan = new FileScan();
-        System.out.print("результат равен ");
-        System.out.println(fileScan.scan("c:/tmp/bitrixBackup"));
-        System.out.println("результат равен ");
+//        FileScan fileScan = new FileScan();
+//        System.out.print("результат равен ");
+//        System.out.println(fileScan.scan("c:/tmp/bitrixBackup"));
+//        System.out.println(fileScan.scan(null));
+//        System.out.println("результат равен ");
+//__________________________________________________________________
+        // второй вариант решения проблемы
+        class FileCounter {
+            private long fileCount;
 
-
-
+            public long scanCount(String folderPath) {
+                File folder = new File(folderPath);
+                File[] files = folder.listFiles();
+                for (int i = 0; i < files.length; i++) {
+                    if (!files[i].isDirectory()) {
+                        fileCount++;
+                    } else if (files[i].isDirectory()) {
+                        this.scanCount(files[i].getPath());
+                    }
+                }
+                return fileCount;
+            }
+        }
+        System.out.println(new FileCounter().scanCount("c:/tmp/bitrixBackup"));
 
 
     }
