@@ -88,6 +88,7 @@ public class FilesLearn {
 
             public long scanCount(String folderPath) {
                 File folder = new File(folderPath);
+//                System.out.println(folder.exists() + " папка существует");
                 File[] files = folder.listFiles();
                 for (int i = 0; i < files.length; i++) {
                     if (!files[i].isDirectory()) {
@@ -99,7 +100,16 @@ public class FilesLearn {
                 return fileCount;
             }
         }
-        System.out.println(new FileCounter().scanCount("c:/tmp/bitrixBackup"));
+//        System.out.println(new FileCounter().scanCount("c:/tmp/bitrixBackup"));
+
+        String path = "c:/tmp/bitrixBackup";
+//        System.out.println(new FileCounter().scanCount("testDirCountFiles"));
+
+        if (path != null) {
+            System.out.println(new FileCounter().scanCount(path));
+        } else {
+            System.out.println("что то еще");
+        }
 
 
     }
