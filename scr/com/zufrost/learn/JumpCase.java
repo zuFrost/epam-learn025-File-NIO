@@ -34,6 +34,6 @@ public class JumpCase {
                 chars[i] = tempSt.toCharArray()[0];
             }
         }
-        System.out.println(new  String(chars));
+//        System.out.println(Z);
     }
 }
