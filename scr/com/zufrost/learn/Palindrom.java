@@ -21,8 +21,8 @@ public class Palindrom {
         StringBuffer buffer = new StringBuffer(text1);
         buffer.reverse();
         String text1Temp = buffer.toString();
-        System.out.println(text1);
-        System.out.println(text1Temp);
+//        System.out.println(text1);
+//        System.out.println(text1Temp);
         text1 = text1.replaceAll(" ", "").toLowerCase();
         text1Temp = text1Temp.replaceAll(" ", "").toLowerCase();
         System.out.println(text1);
