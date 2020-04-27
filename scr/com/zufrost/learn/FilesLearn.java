@@ -100,10 +100,10 @@ public class FilesLearn {
                 return fileCount;
             }
         }
-//        System.out.println(new DirCounter().scanCount("c:/tmp/bitrixBackup"));
+//        System.out.println(new FileCounter().scanCount("c:/tmp/bitrixBackup"));
 
         String path = "c:/tmp/bitrixBackup";
-//        System.out.println(new DirCounter().scanCount("testDirCountFiles"));
+//        System.out.println(new FileCounter().scanCount("testDirCountFiles"));
 
         if (path != null) {
             System.out.println(new FileCounter().scanCount(path));
