@@ -1,10 +1,11 @@
 package com.zufrost.learn;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MaskSensitiveData {
     public static void main(String[] args) throws IOException {
@@ -21,8 +22,15 @@ public class MaskSensitiveData {
         }*/
 
 //        File file = new  File("sensitive_data.txt"); //todo
-        String file = "sensitive_data.txt";
-        List<String> lines = Files.readAllLines(Paths.get(file));
+
+        File file = new File("resources/testDirCountFiles/sensitive_data.txt");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+        String line = reader.readLine();
+        System.out.println(line);
+        Pattern pattern  = Pattern.compile("(?<=\\d{4}\\s)((\\d{4}\\s\\d{4}))(?=\\s\\d{4})");
+        Matcher matcher = pattern.matcher(line);
+        String result = matcher.replaceAll("**** ****"); // строка с результатом (замена всего найденного на "/")
+        System.out.println(result);
 
 
 
